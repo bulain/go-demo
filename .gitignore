@@ -16,3 +16,6 @@ vendor/
 
 #goreleaser
 dist/
+
+#workspace
+go.work
