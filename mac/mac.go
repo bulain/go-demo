@@ -21,11 +21,14 @@ func Fetch() ([]MacInfo, error) {
 	//loop system network interfaces
 	for _, inter := range interfaces {
 
-		if inter.Flags&net.FlagLoopback > 0 {
+		if inter.Flags & net.FlagLoopback > 0 {
 			continue
 		}
-		if inter.Flags&net.FlagUp == 0 {
+		if inter.Flags & net.FlagUp == 0 {
 			continue
+		}
+		if inter.HardwareAddr == nil {
+		    continue
 		}
 
 		data := new(MacInfo)
